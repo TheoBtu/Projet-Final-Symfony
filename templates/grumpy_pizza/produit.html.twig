@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GrumpyPizzaController!{% endblock %}
+
+{% block body %}
+    <div class='container'>
+        <div class='jumbotron'>
+            <h2> Liste des produits </h2>
+            {% for produit in produits %}
+            <div class="card" style="width: 18rem;">
+                {% if produit.photo is not null %}
+                    <img src="{{ asset('assets/images/' ~ produit.photo) }}" class="card-img-top" alt="image de folie"/>
+                {% endif %}
+                <div class="card-body">
+                    <p class="card-text"> Produit: {{ produit.nom }} </p>
+                    <p class="card-text"> Quantité: {{ produit.quantite }} </p>
+                    <p class="card-text"> Prix: {{ produit.prix }} </p>
+                    <a href="ficheProduit/{{ produit.id }}"><button type="button" class="btn btn-primary">Voir Plus</button> </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class='jumbotron'>
+            {{ form(formProduits) }} <! -- Form pour ajouter le produit -->
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GrumpyPizzaController!{% endblock %}
+
+{% block body %}
+    <div class='container'>
+        <div class='jumbotron'>
+            <h2> {{ficheProduits.nom}} </h2>
+            <div class="card" style="width: 18rem;">
+                    <img src="{{ asset('assets/images/' ~ ficheProduits.photo) }}" class="card-img-top" alt="image de folie"/>
+                <div class="card-body">
+                    <p class="card-text"> Quantité: {{ ficheProduits.quantite }} </p>
+                    <p class="card-text"> Prix: {{ ficheProduits.prix }} </p>
+                </div>
+            </div>
+        </div>
+
+        <div class='jumbotron'>
+            {{ form(formficheProduits) }} <! -- Form pour ajouter le produit -->
+            <br>
+            <a href="{{ path('deleteProduit',{id:ficheProduits.id}) }}"><button type="button" class="btn btn-danger">Supprimer</button></a>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
