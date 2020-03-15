@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PanierRepository")
@@ -13,27 +15,32 @@ class Panier
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Produit", inversedBy="paniers")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $produit;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $quantite;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
      */
     private $date_ajout;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\NotBlank
      */
     private $etat;
 

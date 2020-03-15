@@ -15,31 +15,37 @@ class Produit
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $photo;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $quantite;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank
      */
     private $prix;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Panier", mappedBy="produit")
+     * @Assert\NotBlank
      */
     private $paniers;
 
