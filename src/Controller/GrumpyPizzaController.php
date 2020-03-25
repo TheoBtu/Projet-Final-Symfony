@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class GrumpyPizzaController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/index", name="index")
      */
     public function index(Request $request,EntityManagerInterface $entityManager)
     {
